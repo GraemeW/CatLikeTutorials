@@ -9,15 +9,10 @@ public static class FunctionLibrary
 
     static Function[] functions = { Wave, MultiWave, Ripple, Sphere, Torus };
 
-    public static Function GetFunction(FunctionName functionName)
-    {
-        return functions[(int)functionName];
-    }
+    public static int FunctionCount { get => functions.Length; }
 
-    public static FunctionName GetNextFunctionName(FunctionName functionName)
-    {
-        return ((int)functionName < functions.Length - 1) ? functionName + 1 : 0;
-    }
+    public static Function GetFunction(FunctionName functionName) => functions[(int)functionName];
+    public static FunctionName GetNextFunctionName(FunctionName functionName) => ((int)functionName < functions.Length - 1) ? functionName + 1 : 0;
 
     public static FunctionName GetRandomFunctionName(FunctionName functionName)
     {
@@ -40,7 +35,7 @@ public static class FunctionLibrary
     {
         Vector3 p = new Vector3(u, Sin(PI * (u + 0.5f * t)), v);
         p.y += 0.5f * Sin(2f * PI * (v + t));
-        p.y= Sin(PI * (u + v + 0.25f * t));
+        p.y += Sin(PI * (u + v + 0.25f * t));
         p.y *= 1f / 2.5f;
         return p;
     }
@@ -67,8 +62,8 @@ public static class FunctionLibrary
 
     public static Vector3 Torus(float u, float v, float t)
     {
-        float r1 = 0.7f + 0.1f * Sin(PI * (6f * u + 0.5f * t));
-        float r2 = 0.15f + 0.05f * Sin(PI * (8f * u + 4f * v + 2f * t));
+        float r1 = 0.7f + 0.1f * Sin(PI * (8f * u + 0.5f * t));
+        float r2 = 0.15f + 0.05f * Sin(PI * (16f * u + 8f * v + 3f * t));
 
         float s = r1 + r2 * Cos(PI * v);
         Vector3 p = new Vector3(s * Sin(PI * u), r2 * Sin(PI * v), s * Cos(PI * u));
