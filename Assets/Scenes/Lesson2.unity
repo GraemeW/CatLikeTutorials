@@ -780,7 +780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   depth: 6
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: 19e53936f1bb9dd4289e1ae9e2393c4e, type: 2}
+  material: {fileID: 2100000, guid: b4e7b26e0f5a5d14d96115115a57f221, type: 2}
 --- !u!1 &1851754778
 GameObject:
   m_ObjectHideFlags: 0
